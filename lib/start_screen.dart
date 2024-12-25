@@ -7,8 +7,9 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Center(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset("image1.jpg",width: 100,height: 100,),
+            Image.asset("assets/Screenshot_2.png",width:300,),
 
           ],
         ),
