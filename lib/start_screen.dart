@@ -10,6 +10,13 @@ class StartScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset("assets/Screenshot_2.png",width:300,),
+            const SizedBox(height: 60,),
+            const Text("Learn Flutter the fun way",
+              style: TextStyle(color: Colors.white,
+                  fontSize: 24),
+            ),
+            const SizedBox(height: 20,),
+
 
           ],
         ),
