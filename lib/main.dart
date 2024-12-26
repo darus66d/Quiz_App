@@ -16,7 +16,7 @@ class QuizApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home:Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors:[
                   Color.fromARGB(255, 78, 13, 151),
