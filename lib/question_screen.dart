@@ -12,6 +12,9 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreenState extends State<QuestionScreen> {
 
+  var currentQuestionIndex = 0;
+  void
+
   @override
   Widget build(BuildContext context) {
 
@@ -30,7 +33,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30,),
-            ...currentQuestion.answers.map((answer){
+            ...currentQuestion.getShuffledAnswers().map((answer){
               return AnswerButton(answerText: answer, onTap: (){});
             })
             // AnswerButton(answerText: currentQuestion.answers[0],
