@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
+import 'package:quiz_app/data/questios.dart';
+
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
@@ -12,17 +13,26 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
+
+    final currentQuestion = questions[0];
     return  SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("The Questions.....",style: TextStyle(color: Colors.white),),
+          Text(currentQuestion.text,
+            style: TextStyle(
+                color: Colors.white),
+          ),
           const SizedBox(height: 30,),
-          AnswerButton(answerText: "answer 1", onTap: (){}),
-          AnswerButton(answerText: "answer 2", onTap: (){}),
-          AnswerButton(answerText: "answer 3", onTap: (){}),
-          AnswerButton(answerText: "answer 4", onTap: (){}),
+          AnswerButton(answerText: currentQuestion.answers[0],
+              onTap: (){}),
+          AnswerButton(answerText: currentQuestion.answers[1],
+              onTap: (){}),
+          AnswerButton(answerText: currentQuestion.answers[2],
+              onTap: (){}),
+          AnswerButton(answerText: currentQuestion.answers[3],
+              onTap: (){}),
 
 
 
