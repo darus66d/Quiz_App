@@ -12,11 +12,12 @@ class ResultScreen extends StatelessWidget {
     final List<Map<String, Object>> summary = [];
 
     for (var i = 0; i < chosenAnswer.length; i++) {
-      summary.add({
-        "question_index": i,
-        "question": questions[i].text,
-        "correct_answer" : questions[i].answers[0],
-        "user_answer" : chosenAnswer[i],
+      summary.add(
+          {
+            "question_index": i,
+            "question": questions[i].text,
+            "correct_answer" : questions[i].answers[0],
+            "user_answer" : chosenAnswer[i],
       });
     }
 
@@ -25,6 +26,13 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = summaryData.where((data) {
+      return data["user_answer"] == data["correct answer"];
+    }).length;
+    // final numCorrectQuestions = summaryData.where((data) => data["user_answer"] == data["correct answer"]
+    // ).length;
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -32,11 +40,11 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("You answered X out of Y questions correctly!!"),
+            Text("You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!!",),
             const SizedBox(
               height: 30,
             ),
-            QuestionSummary(summaryData: getSummaryData()),
+            QuestionSummary(summaryData: summaryData),
             const SizedBox(
               height: 30,
             ),
